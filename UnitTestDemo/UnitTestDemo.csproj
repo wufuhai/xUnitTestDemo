@@ -21,4 +21,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Infrustracture\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Infrustracture\" />
+  </ItemGroup>
 </Project>
