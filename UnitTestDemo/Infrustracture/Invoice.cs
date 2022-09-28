@@ -23,6 +23,11 @@ namespace UnitTestDemo.Infrustracture
         {
             IsCanceled = true;
         }
+
+        public void Load()
+        {
+            Thread.Sleep(3000);
+        }
     }
 }
 

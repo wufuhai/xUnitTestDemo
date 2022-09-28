@@ -4,14 +4,17 @@ using Xunit.Abstractions;
 
 namespace UnitTestDemo
 {
-    public class InvoiceTests : IDisposable
+    public class InvoiceTests : IDisposable, IClassFixture<InvoiceFixture>
     {
-        Invoice _inv = new Invoice();
+        Invoice _inv => _fixture.Invoice; //new Invoice();
         private readonly ITestOutputHelper _output;
+        private readonly InvoiceFixture _fixture;
 
-        public InvoiceTests(ITestOutputHelper output)
+        public InvoiceTests(ITestOutputHelper output, InvoiceFixture fixture)
         {
             _output = output;
+            _fixture = fixture;
+            //_inv.Load();
             _output.WriteLine("Creating InvoiceTests class instance");
         }
 
