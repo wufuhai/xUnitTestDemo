@@ -20,12 +20,13 @@ namespace UnitTestDemo
 
         //[Fact]
         [Theory]
-        [InlineData(0, 0.06, false, 0)]
-        [InlineData(0.01, 0.06, false, 0.01)]
-        [InlineData(0.01, 0.06, true, 0.01)]
-        [InlineData(100, 0.06, false, 106)]
-        [InlineData(100, 0.06, true, 100)]
-        public void TestTaxCalculation(decimal amount, decimal rate, bool inclusive, decimal expected)
+        //[InlineData(0, 0.06, false, 0)]
+        //[InlineData(0.01, 0.06, false, 0.01)]
+        //[InlineData(0.01, 0.06, true, 0.01)]
+        //[InlineData(100, 0.06, false, 106)]
+        //[InlineData(100, 0.06, true, 100)]
+        [ExcelData("InvoiceTestCases.xlsx", StartRow = 1)]
+        public void TestTaxCalculation(string caseId, decimal amount, decimal rate, bool inclusive, decimal expected)
         {
             // Arrange
             _inv.Amount = amount;

@@ -20,12 +20,21 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Infrustracture\" />
+    <None Remove="ExcelDataReader" />
+    <None Remove="TestData\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrustracture\" />
+    <Folder Include="TestData\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="TestData\InvoiceTestCases.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
