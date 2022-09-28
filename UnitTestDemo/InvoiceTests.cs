@@ -18,20 +18,25 @@ namespace UnitTestDemo
             _output.WriteLine("Creating InvoiceTests class instance");
         }
 
-        [Fact]
-        public void TestTaxCalculation()
+        //[Fact]
+        [Theory]
+        [InlineData(0, 0.06, false, 0)]
+        [InlineData(0.01, 0.06, false, 0.01)]
+        [InlineData(0.01, 0.06, true, 0.01)]
+        [InlineData(100, 0.06, false, 106)]
+        [InlineData(100, 0.06, true, 100)]
+        public void TestTaxCalculation(decimal amount, decimal rate, bool inclusive, decimal expected)
         {
             // Arrange
-            _inv.Amount = 100;
-            _inv.TaxRate = 0.10m;
-            _inv.TaxInclusive = false;
+            _inv.Amount = amount;
+            _inv.TaxRate = rate;
+            _inv.TaxInclusive = inclusive;
 
             // Act
             _inv.Compute();
 
             // Assert
-            //Assert.Equal(110, inv.NetAmount);
-            _inv.NetAmount.Should().Be(110m);
+            _inv.NetAmount.Should().Be(expected);
         }
 
         [Fact]
