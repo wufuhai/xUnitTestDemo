@@ -1,3 +1,4 @@
+using FluentAssertions;
 using UnitTestDemo.Infrustracture;
 
 namespace UnitTestDemo
@@ -17,19 +18,8 @@ namespace UnitTestDemo
             inv.Compute();
 
             // Assert
-            Assert.Equal(110, inv.NetAmount);
-
-            // Re-Arrange
-            inv.TaxInclusive = true;
-            // Act
-            inv.Compute();
-
-            // Assert
-            Assert.Equal(100, inv.NetAmount);
-
-            // Testing different behavior in one test is a bad practice
-            //inv.Cancel();
-            //Assert.Equal(true, inv.IsCanceled);
+            //Assert.Equal(110, inv.NetAmount);
+            inv.NetAmount.Should().Be(110m);
         }
     }
 }
