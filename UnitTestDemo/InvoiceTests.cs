@@ -49,7 +49,7 @@ namespace UnitTestDemo
 
         public void Dispose()
         {
-            //_output.WriteLine("Disposing InvoiceTests class instance");
+            _output.WriteLine("Disposing InvoiceTests class instance");
         }
     }
 }
